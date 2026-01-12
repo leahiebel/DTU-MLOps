@@ -14,6 +14,12 @@ class MyAwesomeModel(nn.Module):
         self.fc1 = nn.Linear(128, 10)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
+        if x.ndim != 4:
+            raise ValueError("Expected input to a 4D tensor")
+
+        if x.shape[1:] != (1, 28, 28):
+            raise ValueError("Expected each sample to have shape [1, 28, 28]")
+
         """Forward pass."""
         x = torch.relu(self.conv1(x))
         x = torch.max_pool2d(x, 2, 2)
@@ -27,6 +33,7 @@ class MyAwesomeModel(nn.Module):
 
 
 if __name__ == "__main__":
+
     model = MyAwesomeModel()
     print(f"Model architecture: {model}")
     print(f"Number of parameters: {sum(p.numel() for p in model.parameters())}")

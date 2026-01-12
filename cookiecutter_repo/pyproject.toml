@@ -19,12 +19,15 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "fastapi==0.115.6",
+    "loguru>=0.7.3",
     "matplotlib>=3.10.8",
     "numpy>=2.4.1",
+    "pytorch-lightning>=2.6.0",
     "scikit-learn>=1.8.0",
     "torch==2.6.0",
     "typer==0.15.1",
     "uvicorn==0.34.0",
+    "wandb>=0.23.1",
 ]
 
 [dependency-groups]
@@ -53,8 +56,14 @@ name = "pytorch-cpu"
 url = "https://download.pytorch.org/whl/cpu"
 explicit = true
 
+[project.scripts]
+train = "cookiecutter_project.train:main"
+evaluate = "cookiecutter_project.evaluate:main"
+
+
 [tool.ruff]
 line-length = 120
+lint.select = ["I"]
 
 [tool.coverage.run]
 omit = ["tests/*"]

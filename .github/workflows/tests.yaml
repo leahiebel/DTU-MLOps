@@ -2,25 +2,20 @@ name: Run tests
 
 on:
   push:
-    branches: [ master, main ]
+    branches: [ main, master ]
   pull_request:
-    branches: [ master, main ]
+    branches: [ main, master ]
 
 jobs:
   build:
     runs-on: ${{ matrix.os }}
-
-    defaults:
-      run:
-        working-directory: cookiecutter_repo
-
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
         python-version: ["3.11", "3.12"]
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v5
 
       - name: Setup uv
@@ -30,7 +25,9 @@ jobs:
           enable-cache: true
 
       - name: Install dependencies
+        working-directory: cookiecutter_repo
         run: uv sync --dev --locked
 
-      - name: Test with pytest
+      - name: Run tests
+        working-directory: cookiecutter_repo
         run: uv run pytest -v

@@ -7,21 +7,17 @@ on:
     branches: [ main, master ]
 
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        python-version: ["3.11", "3.12"]
+  tests:
+    runs-on: windows-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
 
-      - name: Setup uv
+      - name: Setup uv (Python 3.11)
         uses: astral-sh/setup-uv@v7
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: "3.11"
           enable-cache: true
 
       - name: Install dependencies

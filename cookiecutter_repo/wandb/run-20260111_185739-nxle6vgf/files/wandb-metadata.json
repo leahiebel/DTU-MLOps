@@ -1,0 +1,28 @@
+{
+  "os":  "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python":  "CPython 3.12.3",
+  "startedAt":  "2026-01-11T17:57:39.624435Z",
+  "program":  "/home/leahiebel/DTU-MLOps/cookiecutter_repo/src/cookiecutter_project/train.py",
+  "codePath":  "cookiecutter_repo/src/cookiecutter_project/train.py",
+  "codePathLocal":  "src/cookiecutter_project/train.py",
+  "git":  {
+    "remote":  "git@github.com:leahiebel/DTU-MLOps.git",
+    "commit":  "d8f6e31221ed81b34c0321d5c778cdd130b535b2"
+  },
+  "email":  "leahiebel16@gmail.com",
+  "root":  "/home/leahiebel/DTU-MLOps/cookiecutter_repo",
+  "host":  "Lealapitopi",
+  "executable":  "/home/leahiebel/DTU-MLOps/cookiecutter_repo/.venv/bin/python3",
+  "cpu_count":  8,
+  "cpu_count_logical":  8,
+  "disk":  {
+    "/":  {
+      "total":  "1081101176832",
+      "used":  "16569192448"
+    }
+  },
+  "memory":  {
+    "total":  "16529977344"
+  },
+  "writerId":  "m8u6uh7zwverml4mc7dk3qfpqtxpzg0o"
+}
